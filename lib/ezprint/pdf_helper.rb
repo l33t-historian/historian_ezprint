@@ -44,7 +44,7 @@ module EzPrint
 
     def stylesheet_file_path(stylesheet)
       stylesheet = stylesheet.to_s.gsub(".css","")
-      File.join(ActionView::Helpers::AssetTagHelper::STYLESHEETS_DIR,"#{stylesheet}.css")
+      File.join(stylesheet_path,"#{stylesheet}")
     end
 
     def process_html_string(html)
