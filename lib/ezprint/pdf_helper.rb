@@ -32,7 +32,7 @@ module EzPrint
       html_string = render_to_string(:template => options[:template], :layout => options[:layout])
 
       kit = PDFKit.new(process_html_string(html_string))
-      kit.stylesheets = options[:stylesheets].collect{ |style| stylesheet_file_path(style) }
+      kit.stylesheets = options[:stylesheets].collect{ |style| stylesheet_path(style) }
 
       kit.to_pdf
     end
@@ -43,11 +43,6 @@ module EzPrint
         :filename => pdf_name + ".pdf",
         :type => 'application/pdf'
       )
-    end
-
-    def stylesheet_file_path(stylesheet)
-      stylesheet = stylesheet.to_s.gsub(".css","")
-      File.join(stylesheet_path,"#{stylesheet}")
     end
 
     def process_html_string(html)
