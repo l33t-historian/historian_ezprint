@@ -23,16 +23,16 @@ module EzPrint
     private
 
     def make_pdf(options = {})
-      options[:stylesheets] ||= []
       options[:layout] ||= false
       options[:template] ||= File.join(controller_path,action_name)
+      options[:stylesheets] ||= []
 
       # Stop Rails from appending timestamps to assets.
       ENV["RAILS_ASSET_ID"] = ''
       html_string = render_to_string(:template => options[:template], :layout => options[:layout])
 
       kit = PDFKit.new(process_html_string(html_string))
-      kit.stylesheets = options[:stylesheets].collect{ |style| stylesheet_path(style) }
+      kit.stylesheets = options[:stylesheets].collect{ |style| "#{Rails.root.to_s}/public/stylesheets/#{style}.css" }
 
       kit.to_pdf
     end
