@@ -2,6 +2,9 @@ require 'pdfkit'
 
 module EzPrint
   module PdfHelper
+    
+    include ActionView::Helpers::AssetTagHelper
+    
     def self.included(base)
       base.class_eval do
         alias_method_chain :render, :ezprint
@@ -48,7 +51,7 @@ module EzPrint
     end
 
     def process_html_string(html)
-      html.gsub("src=\"/","src=\"#{RAILS_ROOT}/public/") # reroute absolute paths
+      html.gsub("src=\"/","src=\"#{Rails.root.to_s}/public/") # reroute absolute paths
     end
   end
 end
