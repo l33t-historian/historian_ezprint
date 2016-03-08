@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    historian_ezprint (0.2.1)
+      pdfkit (>= 0.4.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    pdfkit (0.4.6)
+    rake (10.5.0)
+    rubygems-tasks (0.2.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  historian_ezprint!
+  rake
+  rubygems-tasks (~> 0.2)
+
+BUNDLED WITH
+   1.10.6

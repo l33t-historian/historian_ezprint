@@ -2,10 +2,16 @@ Ezprint
 =======
 
 Ezprint is a drop in replacement for the princely plugin. It uses PDFKit
-as the backend instead pf princexml, possibly saving you millions of 
-dollars. I recommend using the Rack middleware component of PDFKit to 
-print PDFs in rails, but this plugin makes an easy transition from 
+as the backend instead pf princexml, possibly saving you millions of
+dollars. I recommend using the Rack middleware component of PDFKit to
+print PDFs in rails, but this plugin makes an easy transition from
 prince->PDFKit for those using princely.
+
+Historian
+=======
+
+gem 'historian_ezprint',  '~> 1.0', :require => 'delayed_job_data_mapper'
+
 
 Installation
 ============
@@ -23,7 +29,7 @@ then run "bundle install"
 Example
 =======
 
-The examples here are similar to princely, since the 
+The examples here are similar to princely, since the
 plugin is basically a reworking of the princely source
 
 class PDFExample < ApplicationController
@@ -31,14 +37,14 @@ class PDFExample < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render :pdf => "My Awesome PDF", 
+        render :pdf => "My Awesome PDF",
                :template => "controller/action.pdf.erb",
                :stylesheets => ["application","print"]
                :layout => "pdf"
       end
     end
   end
-  
+
   # Alternatively, you can use make_and_send_pdf to
   # render out a PDF for the action without a
   # respond_to block.
