@@ -10,7 +10,7 @@ prince->PDFKit for those using princely.
 Historian
 =======
 
-gem 'historian_ezprint',  '~> 1.0', :require => 'delayed_job_data_mapper'
+gem 'historian_ezprint',  '~> 1.0', :require => 'ezprint'
 
 
 Installation
