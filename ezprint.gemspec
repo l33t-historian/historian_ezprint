@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README",
      "Rakefile",
-     "VERSION",
      "ezprint.gemspec",
      "lib/ezprint.rb",
      "lib/ezprint/pdf_helper.rb",
